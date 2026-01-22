@@ -1,0 +1,3 @@
+import './bootstrap';
+require('sweetalert');
+
