@@ -18,10 +18,19 @@ class SalesController extends Controller
      */
     public function index()
     {
-        
+        $latestOrder = Sale::orderBy('id', 'desc')->first();
+        if($latestOrder &&  $latestOrder->order_no){
+            $lastNumber = (int) str_replace('RR', '' , $latestOrder->order_no);
+            $newNumber = $lastNumber + 1;
+        }else{
+            $newNumber = 1;
+        }
+    
+        $orderNo = 'RR' . str_pad($newNumber, 5, '0', STR_PAD_LEFT); $newNumber;
+        // dd($orderNo);
         $itemcode = Item::select('id','item_code','item_name','item_qty')->get();
         // dd($itemcode);
-        return view('Master.sales',compact('itemcode'));
+        return view('Master.sales',compact('itemcode','orderNo'));
     }
 
     /**

@@ -30,16 +30,25 @@
                             
                             <div class="col-md-6">
                                 <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        
-                                            <label for="customer_name">Customer</label>
-                                        
-
+                                    <div class="col-sm-4">                          
+                                            <label for="order_no">Order Number</label>
                                     </div>
 
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control enter-next" id="customer_name" name="customer_name" >
+                                        <input type="text" class="form-control" id="order_no"   name="order_no" value ="{{ $orderNo }}" readonly>
+                                    </div>
+                                </div>
+                            </div>
 
+
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <div class="col-sm-4">                          
+                                            <label for="customer_name">Customer</label>
+                                    </div>
+
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control enter-next" id="customer_name" name="customer_name">
                                     </div>
                                 </div>
                             </div>
@@ -76,10 +85,8 @@
                             <div class="col-md-6">
                                 <div class="form-group row">
                                     <div class="col-sm-4">
-                                        
                                             <label for="item_id">Item Name</label>
                                             <font color="#FF0000" size="">*</font>
-
                                     </div>
 
                                     <div class="col-sm-8">
@@ -95,7 +102,6 @@
                                 </div>
                             </div>
                            
-
                               <div class="col-md-6">
                                 <div class="form-group row">
                                     <div class="col-sm-4">

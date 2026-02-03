@@ -62,11 +62,17 @@
         }
 
         /* -------- INFO -------- */
-        .info {
+         .info {
             border: 1.5px solid #000;
             padding: 8px;
             margin-bottom: 10px;
             font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .info-left, .info-right {
+            width: 20%;
         }
 
         /* -------- TABLE -------- */
@@ -143,10 +149,15 @@
 
     <!-- INFO -->
     <div class="info">
-        <strong>Invoice No:</strong> {{ $sale->order_no }} <br>
-        <strong>Date:</strong> {{ date('d-m-Y') }} <br>
-        <strong>Customer:</strong> {{ $sale->customer_name }} <br>
-        <strong>Mobile:</strong> {{ $sale->mob_no }}
+        <div class="info-left">
+            <strong>Invoice No:</strong> {{ $sale->order_no }} <br>
+            <strong>Date:</strong> {{ date('d-m-Y') }}
+        </div>
+        <div class="info-right">
+            <strong>Customer:</strong> {{ $sale->customer_name }} <br>
+            <strong>Mobile:</strong> {{ $sale->mob_no }} <br>
+            <strong>Address:</strong> {{ $sale->address }}
+        </div>
     </div>
 
     <!-- ITEMS TABLE -->
