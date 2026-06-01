@@ -81,9 +81,9 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-       <link rel="shortcut icon" href='{{ asset("assets/images/favicon.png") }}'>
+       <link rel="shortcut icon" href='{{ asset("assets/images/favicon-mess.png") }}'>
 
-      <title>itie</title>
+      <title>Mess Managment</title>
       
       <!-- Favicon -->
 
@@ -127,7 +127,7 @@
                             
                            <div class="text-center">
                        
-                                <img src='{{asset("assets/images/logooo.png")}}' type='image/x-icon' width="300px" />
+                                <img src='{{asset("assets/images/mess.png")}}' type='image/x-icon' width="300px" />
 
 
                             </div>
@@ -158,7 +158,7 @@
                                  </div>
                               </div>
                               <div class="d-flex justify-content-center">
-                                 <button type="submit" class="btn btn-primary">Login</button>
+                                 <button type="submit" class="btn btn-success">Login</button>
                               </div>
                              
                            </form>
