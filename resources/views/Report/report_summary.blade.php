@@ -11,7 +11,7 @@
             <div class="card structure-card">
                 <div class="card-header">
                     <div class="d-flex">
-                        <h6>Order Summary Report</h6>                    
+                        <h6>Expense Summary Report</h6>                    
                     </div>
                 </div>
                 <div class="card-body">
@@ -19,103 +19,93 @@
                         <div class="col-md-12">
                             <div class="table-responsive">
                                 <table id="datatable" class="table table-bordered  table-sm" style="font-size: 12px;">
-                                    <thead>
+                                    <thead> 
                                         <tr>
                                             <th>#</th>
-                                            <th>Customer Name</th>
-                                            <th>Item Name</th>
-                                            <th>Item Crrent Qty</th>
-                                            <th>Sale Qty</th>
-                                            <th>Size</th>
-                                            <th>Color</th>
-                                            <th>Price</th>
-                                            <th>Status</th>
+                                            <th>Member</th>
                                             <th>Total Amount</th>
-                                        </tr>
+                                            <th>Shared</th>
+                                            <th>Balance</th>
+                                         </tr>
                                     </thead>
                                     <tbody>
                                          <?php
+                                            
+                                                    $data = $master;
+                                                    // $grandTotalAmount = 0;
+                                                    // $grandShared = 0;
+                                                    // $grandBalance = 0;
 
-                                                    $itemorder = $master;
-                                                     $totalSaleQty = 0;
-                                                     $grandTotal = 0;
-
-                                                    // echo $itemorder; exit;    
+                                                    // echo $data; exit;    
                                           ?>
-                                         @foreach($itemorder as $item)
+                                          @forelse($data as $exps)
 
-                                                 @php
-                                                    $totalSaleQty += $item->sale_qty;
-                                                    $grandTotal   += $item->total_amount;
-                                                @endphp
+                                                 {{-- @php
+                                                    $grandTotalAmount += $exps->total_amount;
+                                                    $grandShared   += $exps->shared;
+                                                    $grandBalance  += $exps->balance;
+                                                @endphp --}}
                                                 <tr>
                                                     <td align="center" style="width: 20px">
 
                                                         {{ ++$i }}
                                                     </td>
 
-                                                    <td align="left">
-                                                        {{$item->customer_name}}
-   
-                                                    </td>
+                                                  
                                                 
                                                     <td align="left">
-                                                        {{$item->item_name}}
+                                                        {{$exps->member_name}}
           
                                                     </td>
+                                                   
                                                     <td align="left">
-                                                        {{$item->item_qty}}
-                                                    </td>
-
-                                                    <td align="left">
-                                                        {{$item->sale_qty}}
+                                                        {{$exps->paid_amount}}
                                                     </td>
 
                                                    
-
                                                     <td align="left">
-                                                        {{$item->size}}
+                                                        {{$exps->total_share}}
                             
                                                     </td>
                                                      <td align="left">
-                                                        {{$item->color}}
+                                                        @if($exps->balance > 0)
+                                                           <span class="text-success">
+                                                              {{ $exps->balance}} Receive
+                                                           </span>
+                                                        @else
+                                                          <span class="text-danger">
+                                                            {{ $exps->balance }} Pay
+                                                          </span>
+                                                        @endif
+                                                     </td>
                             
-                                                    </td> <td align="left">
-                                                        {{$item->price}}
-                            
-                                                    </td> 
-                                                    <td align="left">
-                                                        {{$item->status == 1 ? 'Wholesale' : ($item->status ==2 ? 'Retail' : '')}}
-                            
-                                                    </td>
-                                                    <td align="left">
-                                                        {{$item->total_amount}}
-                            
-                                                    </td>
+                                                   
 
                                                 </tr>
-                                                @endforeach
+                                               
+                                              @empty
 
-                                                    @if($i==0)
+                                              
                                                     <tr>
                                                         <td align="center" colspan="8" style="color: red">No Record Found</td>
                                                     </tr>
-                                              @endif
+                                              @endforelse
+                                              
                                     </tbody>
 
-                                    @if($i > 0)
+                                    {{-- @if($i > 0) --}}
                                     <tfoot>
-                                        <tr style="font-weight: bold; background: #b3a9a9;">
-                                            <td colspan="4" align="right">Grand TOTAL</td>
-
-                                            <td>{{ $totalSaleQty }}</td>
-
-                                            <td colspan="4"></td>
+                                        <tr style="font-weight: bold; background: #f5ecec;">
+                                            <td colspan="2" align="right">GRAND TOTAL</td>
 
                                             <td>{{ number_format($grandTotal, 2) }}</td>
+                                            <td></td>
+
+                                            <td></td>
+
                                         </tr>
                                     </tfoot>
-                                    @endif
+                                    {{-- @endif --}}
                                 </table>
                             </div>
                         </div>

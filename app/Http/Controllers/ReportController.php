@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Exports\SaleOrderExport;
 use App\Http\Controllers\Controller;
+use App\Models\Expense;
 use App\Models\Item;
+use App\Models\Member;
 use App\Models\Sale;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -16,9 +18,8 @@ class ReportController extends Controller
      */
     public function index()
     {
-        $items = Item::get()->all();
-        $customers = Sale::get()->all();
-        return view('Report.report',compact('items','customers'));
+        $members = Member::where('status', 'active')->get();        
+        return view('Report.report',compact('members'));
     }
 
 
@@ -35,35 +36,29 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $fromdate = $request->fromdate;
         $todate = $request->todate;
-        $iteId = $request->item_id;
-        $customer = $request->customer;
-
+        $members = $request->member_name;
+        $expensetype = $request->exp_type;
 
         if($request->button == 1){
-            $itemorder = Sale::reportsummary([
+            $data = Expense::reportsummary([
                 'from_date'=>$fromdate,
                 'to_date'=>$todate,
-                'item_id'=>$iteId,
-                'customer' =>$customer
+                'member_name'=>$members,
+                'exp_type'=>$expensetype,
             ]);
+            // dd($data);
 
             $i = 0;
-            return view('Report.report_summary')->withMaster($itemorder)->withI($i)->withPerpage(10);
+            // dd($i);
+            return view('Report.report_summary', ['master' => $data['report'], 'grandTotal' => $data['grandTotal'],'i'=> $i ]);
+            return view('Report.report_summary', ['master' => $data['report'],'i'=> $i ]);
+            // return view('Report.report_summary')->withMaster($expense)->withI($i)->withPerpage(10);
 
         }
-        if($request->button == 2){
-            $itemorder = Sale::reportsummary([
-                'from_date'=>$fromdate,
-                'to_date'=>$todate,
-                'item_id'=>$iteId,
-                'customer'=>$customer
-            ]);
-
-            return Excel::download(new SaleOrderExport ($itemorder),'Sale Order Summary Report.xlsx');
-
-        }
+       
     }
 
     /**

@@ -127,7 +127,7 @@
                             
                            <div class="text-center">
                        
-                                <img src='{{asset("assets/images/mess.png")}}' type='image/x-icon' width="300px" />
+                                <img src='{{asset("assets/images/mess.png")}}' type='image/x-icon' width="200px" height ="200px" />
 
 
                             </div>

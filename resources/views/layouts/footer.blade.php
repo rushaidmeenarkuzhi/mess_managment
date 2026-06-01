@@ -13,7 +13,7 @@
                         </ul>
                         <div class="right-panel">
                             ©
-                            <script>document.write(new Date().getFullYear())</script> itie
+                            <script>document.write(new Date().getFullYear())</script> Mess Managment
                             <span class="">
                                 <svg class="icon-15" width="15" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">

@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\master\ComplaintController;
-use App\Http\Controllers\master\ItemController;
+use App\Http\Controllers\Master\ExpenseController;
+use App\Http\Controllers\master\MemberController;
 use App\Http\Controllers\master\SalesController;
 use App\Http\Controllers\Master\TechnicianController;
 use App\Http\Controllers\master\UserController;
@@ -29,10 +30,10 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::resource('/item', ItemController::class);
+Route::resource('/member', MemberController::class);
 Route::resource('/user', UserController::class);
 Route::resource('/report', ReportController::class);
-Route::resource('/sales', SalesController::class);
+Route::resource('/expense', ExpenseController::class);
 
 Route::post('ajax/{method}', function ($method) {
 

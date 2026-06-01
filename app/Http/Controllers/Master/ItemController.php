@@ -8,6 +8,7 @@ use App\Models\Item;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Alert;
+use Illuminate\Support\Facades\DB;
 
 class ItemController extends Controller
 {
@@ -62,7 +63,7 @@ class ItemController extends Controller
     //         return redirect()->back()->with('error', 'This Item Color Or Size Alredy Exist!');
     //     }
 
-      
+        
 
         $item = new Item([
             'item_name' => $request->get('item_name'),

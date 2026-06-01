@@ -10,7 +10,7 @@
         <div class="col-md-10">
             <div class="card structure-card">
                 <div class="card-header">
-                    <h6>Order Report</h6>
+                    <h6>Expense Report</h6>
 
                 </div>
                
@@ -50,36 +50,38 @@
                    
                        <div class="col-md-12 form-group">
                            
-                        <label for="item_id">Items</label>
-
-                                <select class="form-control enter-next" id="item_id" name="item_id">
-                                    <option value="">-- Select Item Name --</option>
-                                    @foreach ($items as $item)
-                                    <option value="{{ $item->item_name }}">
-                                        {{ $item->item_name }}
-                                    </option>
-                                    @endforeach
-                                 </select>                        
+                        <label for="exp_type">Select Expense Type</label>
+                        <br>
+                                 <select class="form-control mt-1" name="exp_type" id="exp_type">
+                                    <option value="">--Select Type--</option>
+                                    <option value="daily_expense">Daily Expense</option>
+                                    <option value="room_rent" >Room Rent</option>
+                                    <option value="electrical">Electrical</option>
+                                    <option value="water">Water</option>
+                                    <option value="internet">Internet</option>
+                                    <option value="other">Other</option>
+                                </select>                      
                        </div>
                         
                  </div>
-                  <div class="col-md-6 form-group">
+                <div class="col-md-6 form-group">
                    
                        <div class="col-md-12 form-group">
                            
-                        <label for="customer">Customer</label>
-
-                                <select class="form-control enter-next" id="customer" name="customer">
-                                    <option value="">-- Select Item Name --</option>
-                                    @foreach ($customers as $customer)
-                                    <option value="{{ $customer->customer_name }}">
-                                        {{ $customer->customer_name }}
+                        <label for="members">Members</label>
+                        <br>
+                                <select class="form-control enter-next mt-1" id="members" name="members">
+                                    <option value="">-- Select Member --</option>
+                                    @foreach ($members as $member)
+                                    <option value="{{ $member->member_name }}">
+                                        {{ $member->member_name }}
                                     </option>
                                     @endforeach
                                  </select>                        
                        </div>
                         
                  </div>
+                 
 
                
             </div>

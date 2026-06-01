@@ -7,7 +7,7 @@
 @section('content')
 
 
-<div class="container-fluid">
+{{-- <div class="container-fluid">
     <div class="justify-content-between">
         <div class="form-group">
              <div class="row">
@@ -96,7 +96,7 @@
         </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

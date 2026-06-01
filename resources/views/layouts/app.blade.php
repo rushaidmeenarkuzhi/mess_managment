@@ -9,8 +9,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- <title>{{ config('app.name', 'itie') }}</title> --}}
-    <title>itie</title>
-       <link rel="shortcut icon" href='{{ asset("assets/images/favicon.png") }}'>
+    <title>Mess Managment</title>
+       <link rel="shortcut icon" href='{{ asset("assets/images/favicon-mess.png") }}'>
 
 
     <!-- Fonts -->
@@ -59,7 +59,21 @@
             }
         }
 
+       .buttonmodal{
+            margin-left:70%;
+       } 
+
     </style>
+
+    {{-- <style>
+        .select2-results__option[aria-selected=true]::before {
+            content: "☑ ";
+        }
+
+        .select2-results__option[aria-selected=false]::before {
+            content: "☐ ";
+        }
+    </style> --}}
 </head>
 
 

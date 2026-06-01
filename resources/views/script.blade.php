@@ -11,7 +11,6 @@
             //     text: "{{ session('success') }}",
             //     confirmButtonText: 'OK'
             // });
-
             const Toast = Swal.mixin({
                 toast: true,
                 position: "top-end",
@@ -27,6 +26,7 @@
                 icon: "success",
                 text: "{{ session('success') }}"
                 });
+                
         </script>
     @endif
 
@@ -70,38 +70,8 @@
     }
 </script>
 
-<script>
 
-    function calculateTotal() {
-
-    let qty   = parseFloat(document.getElementById('sale_qty').value) || 0;
-    let price = parseFloat(document.getElementById('price').value) || 0;
-
-    let total = qty * price;
-
-    document.getElementById('total_amount').value = total.toFixed(2);
-  }
-
-  function validateSaleQty() {
-    let currentQty = parseInt(document.getElementById('current_qty').value) || 0;
-    let saleQty = parseInt(document.getElementById('sale_qty').value) || 0;
-
-    if (saleQty <= 0) {
-        alert('Sale Qty must be greater than 0');
-        document.getElementById('sale_qty').value = '';
-        return false;
-    }
-
-    if (saleQty > currentQty) {
-        alert('Sale Qty cannot be greater than Current Quantity');
-        document.getElementById('sale_qty').value = '';
-        return false;
-    }
-    return true;
-}
-</script>
-
-
+{{-- 
 <script>
      function getItemDetails() {
 
@@ -126,7 +96,7 @@
                 });
             }
     }
-</script>
+</script> --}}
 
 <script type="text/javascript">
     
@@ -284,7 +254,7 @@
     document.getElementById('action_type').value = actionType;
 
     let form = document.getElementById('salesubmit');
-    form.action = "{{ route('sales.store') }}";
+    form.action = "##";
     form.method = "POST";
     form.submit();
 
@@ -310,6 +280,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 </script>
+{{-- <script>
+    $(document).ready(function (){
+        $('#member_id').select2();
+    });
+</script> --}}
+
+  
 
 
 
